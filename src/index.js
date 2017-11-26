@@ -1,10 +1,10 @@
-import React from 'react';
-import { View } from 'react-native';
-
 import '../config/ReactotronConfig';
 
+import React from 'react';
+import Routes from '../src/routes';
+
 const App = () => (
-  <View />
+  <Routes />
 );
 
 export default App;
