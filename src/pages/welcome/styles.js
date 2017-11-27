@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  error: {
+    color: colors.error,
+    fontSize: fonts.small,
+    marginTop: 10,
+  },
+
 
 });
 
