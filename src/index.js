@@ -1,10 +1,33 @@
 import '../config/ReactotronConfig';
 
-import React from 'react';
-import Routes from '../src/routes';
+import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
+import createRootNavigator from '../src/routes';
 
-const App = () => (
-  <Routes />
-);
+export default class App extends Component {
+  state = {
+    userExists: false,
+    userChecked: false,
+  };
 
-export default App;
+  componentDidMount() {
+    this.checkUser().then((response) => {
+      this.setState({ userExists: response, userChecked: true });
+    });
+  }
+
+  checkUser = async () => {
+    const user = await AsyncStorage.getItem('@Githuber:username');
+
+    return user !== null;
+  }
+
+  render() {
+    const { userChecked, userExists } = this.state;
+
+    if (!userChecked) return null;
+
+    const Layout = createRootNavigator(userExists);
+    return <Layout />;
+  }
+}
