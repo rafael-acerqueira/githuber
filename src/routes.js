@@ -1,4 +1,7 @@
+import React from 'react';
 import { StackNavigator, TabNavigator } from 'react-navigation';
+
+import Header from './components/Header';
 
 import Welcome from '../src/pages/welcome';
 import Repositories from '../src/pages/repositories';
@@ -15,6 +18,9 @@ const createRootNavigator = (userExists = false) =>
     },
   }, {
     initialRouteName: userExists ? 'User' : 'Welcome',
+    navigationOptions: {
+      header: props => <Header {...props} />,
+    },
   });
 
 export default createRootNavigator;
