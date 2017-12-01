@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
 import PropTypes from 'prop-types';
-import api from '../../services/api';
-
 import {
   View,
   Text,
@@ -13,6 +11,7 @@ import {
 } from 'react-native';
 
 import styles from './styles';
+import api from '../../services/api';
 
 export default class Welcome extends Component {
   static propTypes = {
