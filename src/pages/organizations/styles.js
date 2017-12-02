@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
+
+  loading: {
+    marginTop: 20,
+  },
 });
 
 export default styles;

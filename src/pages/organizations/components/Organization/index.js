@@ -6,15 +6,24 @@ import styles from './styles';
 
 
 export default class Organization extends Component {
+  static propTypes = {
+   organization: PropTypes.shape({
+     avatar_url: PropTypes.string,
+     login: PropTypes.string,
+   }).isRequired,
+  };
 
   render() {
+
+    const { organization } = this.props;
+
     return (
       <View style={styles.container}>
         <Image
           style={styles.avatar}
-          source={{ uri: 'http://place-hold.it/64' }}
+          source={{ uri: organization.avatar_url }}
         />
-        <Text style={styles.title}>Organização 1</Text>
+        <Text style={styles.title}>{organization.login}</Text>
       </View>
     );
   }
